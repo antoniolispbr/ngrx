@@ -16,13 +16,21 @@ export class CadastroUsuariosComponent {
 
   constructor(private usuarioService: UsuarioSevice){}
 
-  addUsuario(){
-    if(this.model.id == 0){
-      //cadastra
-      this.usuarioService.addUsuario(this.model).subscribe();
-    }else {
-      //atualizar
+  async addUsuario() {
+    // Buscar todos os usuários para determinar o ID mais alto
+    const usuarios = await this.usuarioService.getUsuarios().toPromise();
+
+    // Encontrar o ID mais alto (lidar com array potencialmente vazio)
+    let highestId = 0;
+    if (usuarios && usuarios.length > 0) {
+      highestId = Math.max(...usuarios.map(usuario => usuario.id));
     }
+
+    // Gerar o novo ID
+    this.model.id = highestId + 1;
+
+    // Chamar o método de serviço addUsuario
+    this.usuarioService.addUsuario(this.model).subscribe();
   }
 
 }
