@@ -1,26 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { UsuarioSevice } from '../../service/usuario.service';
+import { Component, Injector, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { UsuarioModel } from '../../models/usuario.model';
 import { NgFor } from '@angular/common';
+import { AppState } from '../../store/app-state';
+import * as fromUsuariosAction from '../../store/usuarios/usuarios.action'
+import { Store, StoreModule } from '@ngrx/store';
+
 
 
 @Component({
   selector: 'app-listar-usuarios',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,CommonModule],
+  providers:[StoreModule],
   templateUrl: './listar-usuarios.component.html',
   styleUrl: './listar-usuarios.component.css'
 })
 export class ListarUsuariosComponent implements OnInit{
-  listaUsuarios: UsuarioModel[] = []
-  constructor(private usuariosService: UsuarioSevice ){}
+  listaUsuarios: UsuarioModel[] = [];
+
+  constructor(
+    private store: Store<AppState>,
+    private injector: Injector
+  ){ }
 
   ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.usuariosService.getUsuarios().subscribe((usuarios: UsuarioModel[])=>{
-      this.listaUsuarios = usuarios;
-    })
+    this.store.dispatch(fromUsuariosAction.loadUsuarios())
+
+    // this.usuariosService.getUsuarios().subscribe((usuarios: UsuarioModel[])=>{
+    //   this.listaUsuarios = usuarios;
+    // })
   }
 
 }
