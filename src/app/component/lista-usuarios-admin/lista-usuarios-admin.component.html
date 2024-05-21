@@ -1,0 +1,28 @@
+<div  class="container">
+  <p class="text-center text-uppercase fs-3 fw-bold">Lista de Usuários ADM</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <td class="fw-bold">Id</td>
+        <td class="fw-bold">Nome</td>
+        <td class="fw-bold">Idade</td>
+        <td class="fw-bold">Perfil</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of listaUsuarios$ | async">
+        <td>{{ row.id }}</td>
+        <td>{{ row.nome }}</td>
+        <td>{{ row.idade }}</td>
+        <td>{{ row.perfil }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div class="container">
+    <button class="btn-secondary btn" (click)="onListar()">Listar</button>
+  <button class="btn-secondary btn ms-1" (click)="onCadastrar()">Cadastrar</button>
+  </div> -->
+
+</div>
+

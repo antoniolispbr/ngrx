@@ -1,23 +1,42 @@
-<p>cadastro-usuarios works!</p>
+<div class="container p-4">
+  <p class="text-uppercase fs-3 fw-bold">Cadastrar Formulário</p>
 
-<form id="myForm" #f="ngForm" (ngSubmit)="addUsuario()">
-  <div class="col-6">
-    <label>Id</label>
-    <input id="id" name="id" [(ngModel)]="model.id" class="form-control" type="text">
-  </div>
-  <div class="col-6">
-    <label>Nome</label>
-    <input id="nome" name="nome" [(ngModel)]="model.nome" class="form-control" type="text">
-  </div>
-  <div class="col-6">
-    <label>Idade</label>
-    <input id="idade" name="idade" [(ngModel)]="model.idade" class="form-control" type="text">
-  </div>
-  <div class="col-6">
-    <label>Perfil</label>
-    <input id="perfil" name="perfil" [(ngModel)]="model.perfil" class="form-control" type="text">
-  </div>
-  <div class="col-6 ">
-    <button type="submit" class="btn btn-primary btnAjuste">Adicionar</button>
-  </div>
-</form>
+  <form id="myForm" #f="ngForm" (ngSubmit)="addUsuario()">
+    <div class="row">
+      <div class="col-6">
+        <label class="fw-bold">Id</label>
+        <input id="id" name="id" [(ngModel)]="model.id" class="form-control" type="number">
+      </div>
+      <div class="col-6">
+        <label class="fw-bold">Nome</label>
+        <input id="nome" name="nome" [(ngModel)]="model.nome" class="form-control" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label class="fw-bold">Idade</label>
+        <input id="idade" name="idade" [(ngModel)]="model.idade" class="form-control" type="number">
+      </div>
+      <div class="col-6">
+        <label class="fw-bold">Perfil</label>
+        <input id="perfil" name="perfil" [(ngModel)]="model.perfil" class="form-control" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 pt-2">
+        <button type="submit" class="btn btn-primary btnAjuste">Adicionar</button>
+      </div>
+
+    </div>
+
+  </form>
+</div>
+
+<div class="container mt-4">
+  <p class="fw-bold">Abrir outros Formuários</p>
+  <button class="btn-secondary btn" (click)="onListar()">Listar</button>
+  <button class="btn-secondary btn ms-1" (click)="onConsultar()">Consultar</button>
+</div>
+
+
+

@@ -9,6 +9,7 @@ import { UsuarioSevice } from './service/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),

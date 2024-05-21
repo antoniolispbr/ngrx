@@ -3,13 +3,13 @@
     {
       "id": "1",
       "nome": "Usuario 1",
-      "idade": 35,
+      "idade": 37,
       "perfil": "Administrador"
     },
     {
       "id": "2",
       "nome": "Usuario 2",
-      "idade": 55,
+      "idade": 50,
       "perfil": "Diretor"
     },
     {
@@ -19,10 +19,28 @@
       "perfil": "Consultor"
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "Usuario 4",
-      "idade": "42",
+      "idade": 42,
       "perfil": "Diretor"
+    },
+    {
+      "id": "5",
+      "nome": "Usuario 5",
+      "idade": 39,
+      "perfil": "Consultor"
+    },
+    {
+      "id": "6",
+      "nome": "Usuario 6",
+      "idade": 33,
+      "perfil": "Consultor"
+    },
+    {
+      "id": 7,
+      "nome": "Usuario 7",
+      "idade": 22,
+      "perfil": "Administrador"
     }
   ]
 }

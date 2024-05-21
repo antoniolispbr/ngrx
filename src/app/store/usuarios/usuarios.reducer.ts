@@ -70,5 +70,5 @@ export const getUsuarioErro = createSelector(
 
 export const getUsuariosAdministradores = createSelector(
   getUsuariosFeatureState,
-  (state: UsuariosState) => state.usuarios.filter((filter) => filter.perfil == 'Administradores')
+  (state: UsuariosState) => state.usuarios.filter((filter) => filter.perfil == 'Administrador')
 )

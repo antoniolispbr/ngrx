@@ -1,14 +1,27 @@
-<p>main works!</p>
-
 <div class="container">
-  <div class="row">
+  <div *ngIf="(view$ | async) === 'listar'" class="row">
     <div class="col col-12">
-      <app-listar-usuarios></app-listar-usuarios>
+      <app-listar-usuarios
+      (cadastrarEvent)="mostrarCadastro()"
+      (consultarEvent)="mostrarConsulta()"
+      ></app-listar-usuarios>
     </div>
   </div>
-  <div class="row">
+  <div *ngIf="(view$ | async) === 'cadastro'" class="row">
     <div class="col col-12">
-      <app-cadastro-usuarios></app-cadastro-usuarios>
+      <app-cadastro-usuarios
+      (listarEvent)="mostrarLista()"
+      (consultarEvent)="mostrarConsulta()"
+      ></app-cadastro-usuarios>
+    </div>
+  </div>
+  <div *ngIf="(view$ | async) === 'consulta'" class="row">
+    <div class="col col-12">
+      <app-lista-usuarios-admin
+      (listarEvent)="mostrarLista()"
+      (cadastrarEvent)="mostrarCadastro()"
+      ></app-lista-usuarios-admin>
+
     </div>
   </div>
 </div>

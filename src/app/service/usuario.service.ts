@@ -13,7 +13,7 @@ export class UsuarioSevice {
   };
 
   getUsuario(id: number){
-    return this.http.get<UsuarioModel>('http://localhost:3000/Usuarios' + id);
+    return this.http.get<UsuarioModel>('http://localhost:3000/Usuarios/' + id);
   };
 
   addUsuario(record: UsuarioModel){
@@ -23,11 +23,11 @@ export class UsuarioSevice {
 
   updateUsuario(record: UsuarioModel){
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<UsuarioModel>('http://localhost:3000/Usuarios' + record.id, JSON.stringify(record),{headers: headers} )
+    return this.http.put<UsuarioModel>('http://localhost:3000/Usuarios/' + record.id, JSON.stringify(record),{headers: headers} )
   };
 
   deleteUsuario(id: number){
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<UsuarioModel>('http://localhost:3000/Usuarios' + id, {headers: headers} )
+    return this.http.delete<UsuarioModel>('http://localhost:3000/Usuarios/' + id, {headers: headers} )
   };
 }
